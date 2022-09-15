@@ -88,7 +88,7 @@ tabfreq.svy <- function(formula,
   if (! is.null(formula) && class(formula) != "formula") {
     stop("The input 'formula' must be a formula.")
   }
-  if (! "survey.design" %in% class(design)) {
+  if (!any( c("survey.design", "survey.design2", "svyrep.design") %in% class(design))) {
     stop("The input 'design' must be a survey design object.")
   }
   if (! all(columns %in% c("n", "N", "overall", "xgroups", "p"))) {
